@@ -103,8 +103,9 @@ def main(args):
             #print('Frame: ' + str(fid))
             prob, face_info = im_test(net, im, args)
             probs.append(prob)
+            print(prob)
 
-        print(probs)
+        #print(probs)
 
 
 if __name__ == '__main__':

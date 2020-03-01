@@ -64,6 +64,7 @@ def parse_vid(video_path):
         success, image = vidcap.read()
         if success:
             imgs.append(image)
+            counter=counter+1
         else:
             break
 

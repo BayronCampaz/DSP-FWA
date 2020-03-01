@@ -75,17 +75,17 @@ def main(args):
     net = setup(args)
     model_path = os.path.join(args.save_dir, args.ckpt_name)
     if os.path.isfile(model_path):
-        print("=> loading checkpoint '{}'".format(model_path))
+        #print("=> loading checkpoint '{}'".format(model_path))
         checkpoint = torch.load(model_path)
         start_epoch = checkpoint['epoch']
         net.load_state_dict(checkpoint['net'])
-        print("=> loaded checkpoint '{}' (epoch {})"
-              .format(model_path, start_epoch))
+        #print("=> loaded checkpoint '{}' (epoch {})"
+           #   .format(model_path, start_epoch))
     else:
         raise ValueError("=> no checkpoint found at '{}'".format(model_path))
 
     f_path = args.input
-    print('Testing: ' + f_path)
+    #print('Testing: ' + f_path)
     suffix = f_path.split('.')[-1]
     if suffix.lower() in ['jpg', 'png', 'jpeg', 'bmp', 'tif', 'nef', 'raf']:
         im = cv2.imread(f_path)
@@ -100,7 +100,7 @@ def main(args):
         imgs, frame_num, fps, width, height = pv.parse_vid(f_path)
         probs = []
         for fid, im in enumerate(imgs):
-            print('Frame: ' + str(fid))
+            #print('Frame: ' + str(fid))
             prob, face_info = im_test(net, im, args)
             probs.append(prob)
 

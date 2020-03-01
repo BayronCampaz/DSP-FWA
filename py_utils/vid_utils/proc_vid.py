@@ -60,7 +60,7 @@ def parse_vid(video_path):
     height = np.int32(vidcap.get(cv2.CAP_PROP_FRAME_HEIGHT))  # float
     imgs = []
     counter = 0
-    while counter < 10:
+    while counter < 5:
         success, image = vidcap.read()
         if success:
             imgs.append(image)
